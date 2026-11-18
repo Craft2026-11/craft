@@ -1,3 +1,7 @@
+**[🌐 Visit the CRAFT project website →](https://craft2026-11.github.io/craft/)**
+
+<p align="center"><a href="https://craft2026-11.github.io/craft/"><img src="assets/craft-icon.svg" width="84" height="84" alt="CRAFT project website"></a></p>
+
 # CRAFT research website
 
 The manuscript-based research showcase for CRAFT: cross-stage evidence, engineering actions and verified feedback in agentic EDA.

@@ -1,1 +1,9 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="14" fill="#163f35"/><path d="M43 20H23v24h20M15 26h8m-8 12h8m20-12h6m-6 12h6M28 12v8m10-8v8m-10 24v8m10-8v8" fill="none" stroke="#d8f2ad" stroke-width="4"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256" role="img" aria-labelledby="title desc">
+<title id="title">CRAFT project icon</title><desc id="desc">A circuit-shaped C surrounds three connected evidence nodes on a light chip with navy and gold accents.</desc>
+<rect x="1" y="1" width="254" height="254" rx="51" fill="#ffffff" stroke="#e5e7f0" stroke-width="2"/>
+<g stroke="#c8cce1" stroke-width="5" stroke-linecap="round"><path d="M76 28v23m34-23v23m34-23v23m34-23v23M76 205v23m34-23v23m34-23v23m34-23v23M28 76h23m-23 34h23m-23 34h23m-23 34h23M205 76h23m-23 34h23m-23 34h23m-23 34h23"/></g>
+<rect x="50" y="50" width="156" height="156" rx="27" fill="none" stroke="#2b3275" stroke-width="3"/>
+<path d="M171 85h-56L84 116v51h63l24-24" fill="none" stroke="#f4b314" stroke-width="13" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M115 116h29v27h27" fill="none" stroke="#2b3275" stroke-width="5" stroke-linecap="round"/>
+<circle cx="115" cy="116" r="7" fill="#2b3275"/><circle cx="144" cy="143" r="7" fill="#2b3275"/><circle cx="171" cy="143" r="9" fill="#f4b314"/>
+</svg>
