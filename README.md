@@ -34,3 +34,8 @@ The four layout panels embedded in the manuscript PDF are approximately 300 × 3
 [Watch the flow](https://craft2026-11.github.io/craft/#pipeline): a 15-step explanation of synthesis, floorplanning, placement, CTS and routing under cross-stage agent control. The example shows reports returning to the agent, bounded placement/CTS revisions, compatible checkpoint reuse, downstream re-execution and independent evaluation.
 
 Play, pause, step, seek, change speed or inspect an individual stage. Playback suspends offscreen; reduced-motion preferences disable autoplay and moving effects. All circuit graphics and the intervention sequence are illustrative, not experimental measurements or a claim of successful optimization. The animation runs entirely in the browser and needs no EDA installation, LLM service or API token.
+
+
+The flow now includes a stage-level **decision trace**: evidence to inspect, working diagnosis, candidate action, checkpoint boundary, and prediction / verification. It follows playback; selecting a trace stage pauses playback for inspection. An adjacent engineer illustration frames the evidence review perspective, without adding a human approval step to the evaluated method. Parameter names and ranges match manuscript examples; diagnoses and the animation remain illustrative. The manuscript's actual decision case is linked separately.
+
+The five-stage diagram and an initial trace remain visible without JavaScript. Motion preferences are respected, older media-query listeners have a fallback, and changed assets carry versioned URLs to reduce stale cache mixing.

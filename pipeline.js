@@ -21,6 +21,15 @@
     {phase:'RECORD', agent:'verify', revision:true, title:'Keep the outcome accountable.', description:'Retain the action, evidence and evaluation. A candidate may be accepted, rejected or deferred; this explanation does not assert a successful optimization.', label:'POSSIBLE DECISIONS', value:'Accept · reject · defer', note:'Skill changes require separate validation before promotion.'},
     {phase:'NEXT ITERATION', agent:'observe', revision:true, title:'The next decision starts with better evidence.', description:'The record informs the next bounded intervention within the execution budget. Replay the flow or inspect any stage to explore the control loop.', label:'FEEDBACK LOOP', value:'Observe → diagnose → revise → verify', note:'Conceptual animation complete. No EDA tool or model API was called.'}
   ];
+  // Explanatory stage records. Parameters/ranges are manuscript examples;
+  // hypotheses and predictions are not observations from an experimental run.
+  const stageTraces = [
+    {name:'Logic synthesis', evidence:'Inspect mapped timing paths, cell area and synthesis constraints.', diagnosis:'If cell delay dominates, inspect mapping choices before attributing the issue to physical routing.', action:'Consider mapping effort within the manuscript action space.', parameter:'syn_map_effort ∈ {low, medium, high}', boundary:'Re-run synthesis and all physical stages.', prediction:'Record the expected mapping response; compare fresh timing and area reports.', risk:'Check area, power and downstream implementation effects.', review:'Do the critical paths support a mapping-level intervention?'},
+    {name:'Floorplan', evidence:'Inspect utilization, macro boundaries and available placement space alongside later congestion reports.', diagnosis:'If routing pressure follows restricted placement space, floorplan density is a hypothesis to investigate.', action:'Consider a density candidate; keep design and constraints attached to the decision.', parameter:'std_density ∈ {0.50, 0.60, 0.70, 0.75, 0.80}', boundary:'Restart floorplanning; re-run placement, CTS and routing.', prediction:'Record the expected space and congestion response, then inspect the regenerated implementation.', risk:'Check area and wirelength tradeoffs; lower density is not automatically better.', review:'Is the congestion evidence spatially consistent with the floorplan hypothesis?'},
+    {name:'Placement', evidence:'Inspect cell locations, congestion and timing paths together with downstream routing feedback.', diagnosis:'If dense placement aligns with routing pressure, cell spacing is a candidate cause—not a confirmed one.', action:'Consider bounded cell padding as one part of the illustrated placement / CTS revision.', parameter:'cell_padding ∈ {0, 1, 2, 3, 4}', boundary:'Reuse a compatible floorplan checkpoint; re-run placement → CTS → routing.', prediction:'Record the expected spacing response before execution; compare fresh physical and QoR evidence.', risk:'Check timing, area and DRC separately; a changed arrangement need not improve QoR.', review:'Does the executed placement change match the prediction, and does it help downstream?'},
+    {name:'CTS', evidence:'Inspect clock arrival times and data paths alongside setup and hold reports.', diagnosis:'If clock arrival relationships contribute to timing pressure, useful-skew policy is a candidate intervention.', action:'Consider useful-skew policy with the placement revision; record the joint action scope.', parameter:'useful_skew ∈ {false, true}', boundary:'For this joint candidate, re-run placement first, then CTS and routing.', prediction:'Record the expected clock-path response; evaluate setup and hold using the new reports.', risk:'Check adverse hold effects; do not credit one parameter for a joint intervention.', review:'Are setup gains, hold risk and the joint action scope evaluated separately?'},
+    {name:'Routing', evidence:'Inspect post-route timing paths, interconnect delay, congestion and design-rule violations.', diagnosis:'A late-stage symptom can originate upstream. Distinguish route-local issues from placement or clock effects.', action:'Inspect post-route congestion effort for a route-local candidate; the main animation instead revisits placement / CTS.', parameter:'postroute_cong_effort ∈ {low, medium, high}', boundary:'For a route-local change, re-run routing from a compatible pre-route checkpoint.', prediction:'Record the expected routing response, then compare fresh timing, congestion and DRC evidence.', risk:'Keep constraint risk separate from QoR; this demo does not assert signoff.', review:'Do fresh reports support a route-local action, or point to an upstream cause?'}
+  ];
   const stages = [...root.querySelectorAll('[data-pipeline-stage]')];
   const play = document.getElementById('pipeline-play');
   const back = document.getElementById('pipeline-back');
@@ -40,6 +49,31 @@
   let visible = false;
   let userControlled = false;
   let autoStarted = false;
+  let pinnedTrace = null;
+
+  function renderTrace(f) {
+    const stageIndex = pinnedTrace !== null ? pinnedTrace : index === 8 ? 2 : f.stage !== undefined ? f.stage : index <= 7 ? 2 : 4;
+    const trace = stageTraces[stageIndex];
+    const inspecting = pinnedTrace !== null || index < 6;
+    const status = inspecting ? 'Inspection plan' : index < 8 ? 'Candidate scope' : index < 12 ? 'Awaiting fresh reports' : 'Evaluation required';
+    document.getElementById('decision-stage-title').textContent = trace.name;
+    document.getElementById('decision-status').textContent = status;
+    document.getElementById('decision-evidence').textContent = trace.evidence;
+    document.getElementById('decision-diagnosis').textContent = trace.diagnosis;
+    document.getElementById('decision-action').textContent = trace.action;
+    document.getElementById('decision-parameter').textContent = trace.parameter;
+    document.getElementById('decision-boundary').textContent = trace.boundary;
+    document.getElementById('decision-prediction').textContent = trace.prediction;
+    document.getElementById('decision-risk').textContent = trace.risk;
+    document.getElementById('decision-review').textContent = index >= 12 && pinnedTrace === null ? 'What was supported, refuted or non-evaluable—and what evidence justifies that judgment?' : trace.review;
+    document.getElementById('decision-outcome-label').textContent = inspecting ? 'INSPECTION PLAN' : index < 8 ? 'BEFORE EXECUTION' : index < 12 ? 'CANDIDATE IN FLIGHT' : 'NO MEASURED OUTCOME';
+    document.getElementById('decision-outcome').textContent = inspecting ? 'A possible inspection path; no observed defect or selected setting is asserted.' : index < 8 ? 'Commit the action scope and prediction before running. The highlighted placement / CTS candidate remains hypothetical.' : index < 12 ? 'Downstream reports must be regenerated. A changed circuit drawing is not evidence of improvement.' : 'A real trace would record physical response, QoR and constraint risk independently. Accept, reject or defer only with supporting evidence.';
+    document.getElementById('decision-sheet').setAttribute('aria-live', playing ? 'off' : 'polite');
+    root.querySelectorAll('[data-trace-stage]').forEach(el => el.setAttribute('aria-pressed', String(Number(el.dataset.traceStage) === stageIndex)));
+    const follow = document.getElementById('decision-follow');
+    follow.textContent = pinnedTrace === null ? 'Following animation' : 'Follow animation';
+    follow.setAttribute('aria-pressed', String(pinnedTrace === null));
+  }
 
   function drawConnections() {
     const frame = frames[index];
@@ -51,7 +85,9 @@
     const ay = agentBounds.bottom - bounds.top;
     const mobile = matchMedia('(max-width: 650px)').matches;
     svg.setAttribute('viewBox', `0 0 ${bounds.width} ${bounds.height}`);
-    wires.replaceChildren();
+    svg.setAttribute('width', String(bounds.width));
+    svg.setAttribute('height', String(bounds.height));
+    while (wires.firstChild) wires.removeChild(wires.firstChild);
     stages.forEach((stage, i) => {
       const rect = stage.getBoundingClientRect();
       const x = mobile ? rect.left - bounds.left : rect.left + rect.width / 2 - bounds.left;
@@ -63,7 +99,7 @@
       const target = (frame.targets || []).includes(i);
       path.setAttribute('class', 'pipeline-wire' + (source ? ' evidence-wire' : target ? ' revision-wire' : ''));
       if (target && !source) path.setAttribute('marker-end', 'url(#pipeline-gold-tip)');
-      wires.append(path);
+      wires.appendChild(path);
     });
   }
 
@@ -85,6 +121,7 @@
     root.style.setProperty('--stage-progress', String((f.stage ?? 4) / 4));
     root.classList.toggle('is-playing', playing && visible && !document.hidden);
     root.classList.toggle('reduced-motion', motion.matches);
+    document.getElementById('pipeline-motion-note').hidden = !motion.matches;
     play.textContent = playing ? 'Pause' : index === frames.length - 1 ? 'Replay' : 'Play';
     play.setAttribute('aria-label', playing ? 'Pause flow animation' : index === frames.length - 1 ? 'Replay flow animation' : 'Play flow animation');
     back.disabled = index === 0;
@@ -119,6 +156,7 @@
       if (index >= 13 && i >= 2) state = 'Recorded';
       stage.querySelector('.stage-state').textContent = state;
     });
+    renderTrace(f);
     drawConnections();
     schedule();
   }
@@ -126,11 +164,13 @@
   function selectStep(step) {
     userControlled = true;
     playing = false;
+    pinnedTrace = null;
     index = Math.max(0, Math.min(frames.length - 1, step));
     render();
   }
   play.addEventListener('click', () => {
     userControlled = true;
+    pinnedTrace = null;
     if (index === frames.length - 1) index = 0;
     playing = !playing;
     render();
@@ -141,8 +181,17 @@
   seek.addEventListener('input', () => selectStep(Number(seek.value)));
   speed.addEventListener('change', schedule);
   stages.forEach((stage, i) => stage.addEventListener('click', () => selectStep(i)));
+  root.querySelectorAll('[data-trace-stage]').forEach(el => el.addEventListener('click', () => {
+    pinnedTrace = Number(el.dataset.traceStage);
+    userControlled = true;
+    playing = false;
+    render();
+  }));
+  document.getElementById('decision-follow').addEventListener('click', () => { pinnedTrace = null; render(); });
   document.addEventListener('visibilitychange', render);
-  motion.addEventListener('change', () => { if (motion.matches) playing = false; render(); });
+  const onMotionChange = () => { if (motion.matches) playing = false; render(); };
+  if (motion.addEventListener) motion.addEventListener('change', onMotionChange);
+  else if (motion.addListener) motion.addListener(onMotionChange);
   if ('ResizeObserver' in window) new ResizeObserver(drawConnections).observe(board);
   window.addEventListener('resize', drawConnections);
   if ('IntersectionObserver' in window) {
@@ -154,7 +203,10 @@
         playing = true;
       }
       render();
-    }, {rootMargin:'150px 0px',threshold:0}).observe(board);
-  } else visible = true;
+    }, {rootMargin:'150px 0px',threshold:0}).observe(root);
+  } else {
+    visible = true;
+    // Without viewport observation, use explicit playback rather than failing initialization.
+  }
   render();
 })();

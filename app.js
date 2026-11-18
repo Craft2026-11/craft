@@ -1,5 +1,10 @@
 'use strict';
 
+// Avoid requiring Element.replaceChildren for report rendering.
+function clearElement(element) {
+  while (element.firstChild) element.removeChild(element.firstChild);
+}
+
 const steps = [
   ['CROSS-STAGE EVIDENCE', 'A metric tells you what changed. Reports help explain where to look.', 'Correlate timing paths, interconnect delay, congestion, and violations across implementation stages. Keep supporting evidence, contradictions, and uncertainty attached to each hypothesis.'],
   ['COMMIT BEFORE EXECUTION', 'Make the action—and its expected effect—explicit.', 'Construct a constrained engineering action with an objective, supporting evidence, protection bounds, and estimated cost. Commit beneficial, neutral, or harmful predictions before execution; abstain when the evidence is insufficient.'],
@@ -34,7 +39,7 @@ function renderTrace(index) {
   document.getElementById('trace-counter').textContent = `0${index + 1} / 04`;
   document.getElementById('trace-next').textContent = index === 3 ? 'Back to evidence ↺' : 'Next step →';
   const facts = document.getElementById('trace-facts');
-  facts.replaceChildren();
+  clearElement(facts);
   trace.facts.forEach(([label, value]) => {
     const row = document.createElement('div'); row.className = 'trace-fact';
     const key = document.createElement('span'); key.textContent = label;
@@ -99,7 +104,7 @@ function renderResults(data) {
   document.getElementById('chart-title').textContent = `${design} · ${config.title}`;
   document.getElementById('chart-direction').textContent = config.direction;
   document.getElementById('chart-insight').textContent = insights[metric];
-  const chart = document.getElementById('ablation-chart'); chart.replaceChildren();
+  const chart = document.getElementById('ablation-chart'); clearElement(chart);
   const maximum = metric === 'accuracy' ? 100 : Math.max(...rows.map(row => row[metric])) * 1.08 || 1;
   rows.forEach(row => {
     const element = document.createElement('div'); element.className = 'bar-row';
@@ -110,7 +115,7 @@ function renderResults(data) {
     const value = document.createElement('strong'); value.textContent = row[metric].toFixed(config.digits);
     element.append(label, track, value); chart.append(element);
   });
-  const table = document.getElementById('ablation-table'); table.replaceChildren();
+  const table = document.getElementById('ablation-table'); clearElement(table);
   rows.forEach(row => appendRow(table, [row.method, row.ecp.toFixed(3), row.power.toFixed(3), row.area.toFixed(1), row.drc, row.accuracy.toFixed(2)]));
 }
 async function loadData() {
@@ -148,7 +153,7 @@ function renderComparison(data) {
   document.getElementById('comparison-title').textContent = design + ' · ' + labels[metric];
   document.getElementById('comparison-direction').textContent = 'Lower is better · ' + units[metric];
   const chart = document.getElementById('comparison-chart');
-  chart.replaceChildren();
+  clearElement(chart);
   const maximum = Math.max(...rows.map(row => row[metric])) * 1.08 || 1;
   rows.forEach(row => {
     const element = document.createElement('div'); element.className = 'bar-row' + (row.method === 'CRAFT' ? ' craft' : '');
@@ -165,7 +170,7 @@ function renderComparison(data) {
   document.getElementById('comparison-finding').textContent = `${reduction.toFixed(1)}% lower ECP`;
   const scope = agents ? `${node} · ${model}` : '28 nm · post-route tuner comparison';
   document.getElementById('comparison-insight').textContent = `Compared with the lowest-ECP baseline in this setting (${bestBaseline.toFixed(3)} → ${craft.ecp.toFixed(3)} ns). ${scope}. CRAFT reports ${craft.drc} DRC violations; consult the other metrics for trade-offs.`;
-  const tbody = document.getElementById('comparison-table'); tbody.replaceChildren();
+  const tbody = document.getElementById('comparison-table'); clearElement(tbody);
   const fields = ['ecp', 'tns', 'area', 'power', 'drc'];
   rows.forEach(row => {
     appendRow(tbody, [row.method, ...fields.map(key => row.display[key])]);
