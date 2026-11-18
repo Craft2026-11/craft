@@ -43,6 +43,6 @@ The five-stage diagram and an initial trace remain visible without JavaScript. M
 
 ## Innovus layout gallery
 
-Three selected post-route layouts—CPU Tile, NoCRouter and RISC-V CPU—are exported directly from existing CRAFT experiment checkpoints in Innovus. Each has a 960 × 960 preview and a 3000 × 3000 PNG for inspection and download. The image viewer supports fit-to-view and native resolution, loading full images only when opened.
+Six selected post-route layouts—CPU Tile, NoCRouter and RISC-V CPU at both SKY130 and Commercial 28 nm—are exported directly from existing CRAFT experiment checkpoints in Innovus. Each has a 960 × 960 preview and a 3000 × 3000 PNG for inspection and download. The image viewer supports fit-to-view and native resolution, loading full images only when opened.
 
-The gallery shows design names and images without timing or QoR numbers. It is separate from the manuscript’s Figure 6 and does not assert a row-by-row correspondence with its tables or a signoff result. Selection records and checkpoint provenance remain local; no design database, tool log, library or PDK is included in this website.
+The gallery groups layouts by process node and shows design names and images without timing or QoR numbers. DRC display markers are cleared in a disposable visualization session before export; the underlying checkpoints and measured DRC results are unchanged. The commercial technology is identified only as Commercial 28 nm. It is separate from the manuscript’s Figure 6 and does not assert a row-by-row correspondence with its tables or a signoff result. Selection records and checkpoint provenance remain local; no design database, tool log, library or PDK is included in this website.

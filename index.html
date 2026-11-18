@@ -8,8 +8,8 @@
   <meta name="robots" content="noindex,nofollow,noarchive">
   <title>CRAFT — Evidence into engineering</title>
   <link rel="icon" href="assets/craft-icon.svg?v=trace-2" type="image/svg+xml">
-  <link rel="stylesheet" href="styles.css?v=layouts-1">
-  <script src="app.js?v=layouts-1" defer></script>
+  <link rel="stylesheet" href="styles.css?v=layouts-2">
+  <script src="app.js?v=layouts-2" defer></script>
   <script src="pipeline.js?v=trace-2" defer></script>
 </head>
 <body>
@@ -30,7 +30,7 @@
       </div>
       <div class="hero-visual">
         <div class="visual-top"><span><span class="status-dot"></span> PHYSICAL EVIDENCE</span><span>28 nm / CPU TILE</span></div>
-        <div class="chip-window" role="img" aria-label="CPU Tile post-route layout exported from an actual CRAFT experiment in Innovus"></div>
+        <div class="chip-window" role="img" aria-label="Commercial 28 nm CPU Tile post-route layout exported from an actual CRAFT experiment in Innovus"></div>
         <div class="hero-loop"><span>Observe</span><b>→</b><span>Diagnose</span><b>→</b><span>Intervene</span><b>→</b><span>Verify</span></div>
         <div class="visual-bottom"><span>One decision.<br><strong>An inspectable evidence trail.</strong></span><a href="#trace" aria-label="Read the manuscript decision example">↗</a></div>
         <div class="visual-label">INNOVUS · POST-ROUTE SNAPSHOT</div>
@@ -126,13 +126,24 @@
       <noscript><p>Enable JavaScript to explore the numeric tables and decision trace. The original manuscript figures remain available below.</p></noscript>
     </div></section>
     <section class="layout-section" id="layouts"><div class="wrap section">
-      <div class="section-heading"><div><p class="eyebrow">06 / PHYSICAL IMPLEMENTATION</p><h2>From decisions<br><em>to routed designs.</em></h2></div><p>Selected post-route layouts from CRAFT experiments, exported directly from Innovus. Open a design to inspect the full-resolution image.</p></div>
-      <div class="final-layout-gallery" aria-label="Selected Innovus final layouts">
-        <figure class="final-layout-card"><button type="button" class="layout-open" data-layout="true" data-image="assets/innovus-cpu-tile-full.png" data-caption="CPU Tile · Innovus post-route layout" aria-label="Inspect CPU Tile final layout"><img src="assets/innovus-cpu-tile-preview.png" width="960" height="960" alt="CPU Tile routed layout from a CRAFT experiment, exported in Innovus" loading="lazy"><span>Inspect layout ↗</span></button><figcaption><strong>CPU Tile</strong><span>INNOVUS / POST-ROUTE</span></figcaption></figure>
-        <figure class="final-layout-card"><button type="button" class="layout-open" data-layout="true" data-image="assets/innovus-noc-router-full.png" data-caption="NoCRouter · Innovus post-route layout" aria-label="Inspect NoCRouter final layout"><img src="assets/innovus-noc-router-preview.png" width="960" height="960" alt="NoCRouter routed layout from a CRAFT experiment, exported in Innovus" loading="lazy"><span>Inspect layout ↗</span></button><figcaption><strong>NoCRouter</strong><span>INNOVUS / POST-ROUTE</span></figcaption></figure>
-        <figure class="final-layout-card"><button type="button" class="layout-open" data-layout="true" data-image="assets/innovus-riscv-cpu-full.png" data-caption="RISC-V CPU · Innovus post-route layout" aria-label="Inspect RISC-V CPU final layout"><img src="assets/innovus-riscv-cpu-preview.png" width="960" height="960" alt="RISC-V CPU routed layout from a CRAFT experiment, exported in Innovus" loading="lazy"><span>Inspect layout ↗</span></button><figcaption><strong>RISC-V CPU</strong><span>INNOVUS / POST-ROUTE</span></figcaption></figure>
+      <div class="section-heading"><div><p class="eyebrow">06 / PHYSICAL IMPLEMENTATION</p><h2>From decisions<br><em>to routed designs.</em></h2></div><p>Selected post-route layouts across SKY130 and commercial 28 nm, exported directly from CRAFT experiments in Innovus. Open a design to inspect the full-resolution image.</p></div>
+      <div class="layout-gallery-groups">
+        <section class="layout-node-group" aria-labelledby="layouts-sky130"><div class="layout-node-heading"><h3 id="layouts-sky130">SKY130</h3><span>INNOVUS / POST-ROUTE</span></div>
+          <div class="final-layout-gallery" aria-label="SKY130 final layouts">
+            <figure class="final-layout-card"><button type="button" class="layout-open" data-layout="true" data-image="assets/innovus-sky130-cpu-tile-full.png?v=layouts-2" data-caption="CPU Tile · SKY130 · Innovus post-route layout" aria-label="Inspect CPU Tile SKY130 final layout"><img src="assets/innovus-sky130-cpu-tile-preview.png?v=layouts-2" width="960" height="960" alt="CPU Tile SKY130 routed layout from a CRAFT experiment, exported in Innovus" loading="lazy"><span>Inspect layout ↗</span></button><figcaption><strong>CPU Tile</strong><span>SKY130</span></figcaption></figure>
+            <figure class="final-layout-card"><button type="button" class="layout-open" data-layout="true" data-image="assets/innovus-sky130-noc-router-full.png?v=layouts-2" data-caption="NoCRouter · SKY130 · Innovus post-route layout" aria-label="Inspect NoCRouter SKY130 final layout"><img src="assets/innovus-sky130-noc-router-preview.png?v=layouts-2" width="960" height="960" alt="NoCRouter SKY130 routed layout from a CRAFT experiment, exported in Innovus" loading="lazy"><span>Inspect layout ↗</span></button><figcaption><strong>NoCRouter</strong><span>SKY130</span></figcaption></figure>
+            <figure class="final-layout-card"><button type="button" class="layout-open" data-layout="true" data-image="assets/innovus-sky130-riscv-cpu-full.png?v=layouts-2" data-caption="RISC-V CPU · SKY130 · Innovus post-route layout" aria-label="Inspect RISC-V CPU SKY130 final layout"><img src="assets/innovus-sky130-riscv-cpu-preview.png?v=layouts-2" width="960" height="960" alt="RISC-V CPU SKY130 routed layout from a CRAFT experiment, exported in Innovus" loading="lazy"><span>Inspect layout ↗</span></button><figcaption><strong>RISC-V CPU</strong><span>SKY130</span></figcaption></figure>
+          </div>
+        </section>
+        <section class="layout-node-group" aria-labelledby="layouts-28nm"><div class="layout-node-heading"><h3 id="layouts-28nm">Commercial 28 nm</h3><span>INNOVUS / POST-ROUTE</span></div>
+          <div class="final-layout-gallery" aria-label="Commercial 28 nm final layouts">
+            <figure class="final-layout-card"><button type="button" class="layout-open" data-layout="true" data-image="assets/innovus-cpu-tile-full.png?v=layouts-2" data-caption="CPU Tile · Commercial 28 nm · Innovus post-route layout" aria-label="Inspect CPU Tile Commercial 28 nm final layout"><img src="assets/innovus-cpu-tile-preview.png?v=layouts-2" width="960" height="960" alt="CPU Tile Commercial 28 nm routed layout from a CRAFT experiment, exported in Innovus" loading="lazy"><span>Inspect layout ↗</span></button><figcaption><strong>CPU Tile</strong><span>Commercial 28 nm</span></figcaption></figure>
+            <figure class="final-layout-card"><button type="button" class="layout-open" data-layout="true" data-image="assets/innovus-noc-router-full.png?v=layouts-2" data-caption="NoCRouter · Commercial 28 nm · Innovus post-route layout" aria-label="Inspect NoCRouter Commercial 28 nm final layout"><img src="assets/innovus-noc-router-preview.png?v=layouts-2" width="960" height="960" alt="NoCRouter Commercial 28 nm routed layout from a CRAFT experiment, exported in Innovus" loading="lazy"><span>Inspect layout ↗</span></button><figcaption><strong>NoCRouter</strong><span>Commercial 28 nm</span></figcaption></figure>
+            <figure class="final-layout-card"><button type="button" class="layout-open" data-layout="true" data-image="assets/innovus-riscv-cpu-full.png?v=layouts-2" data-caption="RISC-V CPU · Commercial 28 nm · Innovus post-route layout" aria-label="Inspect RISC-V CPU Commercial 28 nm final layout"><img src="assets/innovus-riscv-cpu-preview.png?v=layouts-2" width="960" height="960" alt="RISC-V CPU Commercial 28 nm routed layout from a CRAFT experiment, exported in Innovus" loading="lazy"><span>Inspect layout ↗</span></button><figcaption><strong>RISC-V CPU</strong><span>Commercial 28 nm</span></figcaption></figure>
+          </div>
+        </section>
       </div>
-      <p class="layout-gallery-note">Experimental layout gallery · These snapshots are presented separately from the manuscript’s figure and numeric comparisons.</p>
+      <p class="layout-gallery-note">Experimental layout gallery · Display markers are cleared for viewing. These snapshots are separate from the manuscript’s numeric comparisons and do not indicate signoff status.</p>
       <div class="layout-manuscript-heading"><p class="eyebrow">FROM THE MANUSCRIPT</p><h3>Across toolchains.</h3><p>The original Yosys–OpenROAD layout comparison reported in Figure 6.</p></div>
       <figure class="paper-figure layout-figure"><button class="zoom-button" data-image="assets/fig6_layout.png" data-caption="Figure 6 · OpenROAD and CRAFT layouts on 28 nm" aria-label="Enlarge the complete layout comparison"><img src="assets/fig6_layout.png" alt="OpenROAD: CPU Tile WNS +9.42 ns, NoCRouter −6.69 ns. CRAFT: CPU Tile +10.09 ns, NoCRouter +9.11 ns." loading="lazy"><span class="zoom-hint">Inspect all four layouts ↗</span></button><figcaption>FIG. 06 <span>Original figure · CPU Tile and NoCRouter within each method. Source panels are approximately 300 × 300 pixels; enlarging the view does not add detail.</span></figcaption></figure>
       <div class="layout-readouts"><div><span class="eyebrow">CPU TILE / WNS</span><p>+9.42 <span>→</span> <strong>+10.09</strong> <small>ns</small></p></div><div><span class="eyebrow">NOCROUTER / WNS</span><p>−6.69 <span>→</span> <strong>+9.11</strong> <small>ns</small></p></div><p class="note">OpenROAD → CRAFT, as labeled in Figure 6. WNS is constraint-dependent; these labels alone do not establish a matched-condition speedup or signoff.</p></div>
