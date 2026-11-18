@@ -1,0 +1,1595 @@
+{
+  "source": "DAC27 manuscript supplied on 2026-11-17",
+  "source_sha256": "79f504d535725264050afcf18509bd775adc530a453e655b4e7f65149918b37c",
+  "status": "Source: the supplied manuscript. Tables are transcribed from this version; raw experiment logs are not included.",
+  "ablation_source": "Experimental Results · Ablation Study of CRAFT on 28nm process node",
+  "ablation": {
+    "CPU Tile": [
+      {
+        "method": "Full",
+        "ecp": 10.034,
+        "power": 1.209,
+        "area": 14236.3,
+        "drc": 0.0,
+        "accuracy": 63.64
+      },
+      {
+        "method": "w/o Experience",
+        "ecp": 10.994,
+        "power": 1.191,
+        "area": 14408.1,
+        "drc": 0.0,
+        "accuracy": 24.24
+      },
+      {
+        "method": "w/o Diagnosis",
+        "ecp": 11.592,
+        "power": 1.268,
+        "area": 14210.3,
+        "drc": 0.0,
+        "accuracy": 29.41
+      }
+    ],
+    "NoCRouter": [
+      {
+        "method": "Full",
+        "ecp": 17.105,
+        "power": 1.899,
+        "area": 53657.1,
+        "drc": 0.0,
+        "accuracy": 74.07
+      },
+      {
+        "method": "w/o Experience",
+        "ecp": 17.958,
+        "power": 1.899,
+        "area": 53657.4,
+        "drc": 0.0,
+        "accuracy": 38.1
+      },
+      {
+        "method": "w/o Diagnosis",
+        "ecp": 17.348,
+        "power": 1.901,
+        "area": 53663.8,
+        "drc": 0.0,
+        "accuracy": 50.0
+      }
+    ]
+  },
+  "stability_source": "Experimental Results · Optimization Stability Analysis with Qwen3.5",
+  "stability": [
+    {
+      "node": "SKY130",
+      "design": "CPU Tile",
+      "default": 20.792,
+      "runs": [
+        18.993,
+        19.325,
+        18.792
+      ],
+      "mean": 19.037,
+      "std": 0.269
+    },
+    {
+      "node": "SKY130",
+      "design": "NoCRouter",
+      "default": 31.044,
+      "runs": [
+        26.708,
+        26.994,
+        27.011
+      ],
+      "mean": 26.904,
+      "std": 0.17
+    },
+    {
+      "node": "SKY130",
+      "design": "RISC-V CPU",
+      "default": 47.615,
+      "runs": [
+        39.582,
+        39.984,
+        39.584
+      ],
+      "mean": 39.717,
+      "std": 0.232
+    },
+    {
+      "node": "Commercial 28nm",
+      "design": "CPU Tile",
+      "default": 12.001,
+      "runs": [
+        10.034,
+        9.994,
+        9.998
+      ],
+      "mean": 10.009,
+      "std": 0.022
+    },
+    {
+      "node": "Commercial 28nm",
+      "design": "NoCRouter",
+      "default": 20.906,
+      "runs": [
+        17.658,
+        17.105,
+        17.559
+      ],
+      "mean": 17.441,
+      "std": 0.295
+    },
+    {
+      "node": "Commercial 28nm",
+      "design": "RISC-V CPU",
+      "default": 33.995,
+      "runs": [
+        29.247,
+        28.135,
+        27.952
+      ],
+      "mean": 28.445,
+      "std": 0.701
+    }
+  ],
+  "agent_source": "Comparison of SOTA across different technology nodes, circuit designs, and LLM agents",
+  "agent_comparison": [
+    {
+      "node": "SKY130",
+      "design": "CPU Tile",
+      "method": "ORFS-Agent",
+      "model": "Qwen3.5",
+      "area_unit": "µm²",
+      "display": {
+        "ecp": "19.323",
+        "tns": "0.00",
+        "area": "170657",
+        "power": "12.231",
+        "drc": "37"
+      },
+      "ecp": 19.323,
+      "tns": 0.0,
+      "area": 170657.0,
+      "power": 12.231,
+      "drc": 37.0
+    },
+    {
+      "node": "SKY130",
+      "design": "CPU Tile",
+      "method": "ORFS-Agent",
+      "model": "Llama 3.1",
+      "area_unit": "µm²",
+      "display": {
+        "ecp": "19.861",
+        "tns": "0.00",
+        "area": "170821",
+        "power": "12.225",
+        "drc": "37"
+      },
+      "ecp": 19.861,
+      "tns": 0.0,
+      "area": 170821.0,
+      "power": 12.225,
+      "drc": 37.0
+    },
+    {
+      "node": "SKY130",
+      "design": "CPU Tile",
+      "method": "ORFS-Agent",
+      "model": "Ministral 3",
+      "area_unit": "µm²",
+      "display": {
+        "ecp": "19.714",
+        "tns": "0.00",
+        "area": "170916",
+        "power": "12.118",
+        "drc": "6"
+      },
+      "ecp": 19.714,
+      "tns": 0.0,
+      "area": 170916.0,
+      "power": 12.118,
+      "drc": 6.0
+    },
+    {
+      "node": "SKY130",
+      "design": "CPU Tile",
+      "method": "AgenticPD",
+      "model": "Qwen3.5",
+      "area_unit": "µm²",
+      "display": {
+        "ecp": "19.323",
+        "tns": "0.00",
+        "area": "169036",
+        "power": "12.262",
+        "drc": "43"
+      },
+      "ecp": 19.323,
+      "tns": 0.0,
+      "area": 169036.0,
+      "power": 12.262,
+      "drc": 43.0
+    },
+    {
+      "node": "SKY130",
+      "design": "CPU Tile",
+      "method": "AgenticPD",
+      "model": "Llama 3.1",
+      "area_unit": "µm²",
+      "display": {
+        "ecp": "19.931",
+        "tns": "0.00",
+        "area": "170916",
+        "power": "12.261",
+        "drc": "35"
+      },
+      "ecp": 19.931,
+      "tns": 0.0,
+      "area": 170916.0,
+      "power": 12.261,
+      "drc": 35.0
+    },
+    {
+      "node": "SKY130",
+      "design": "CPU Tile",
+      "method": "AgenticPD",
+      "model": "Ministral 3",
+      "area_unit": "µm²",
+      "display": {
+        "ecp": "19.908",
+        "tns": "0.00",
+        "area": "170503",
+        "power": "12.245",
+        "drc": "59"
+      },
+      "ecp": 19.908,
+      "tns": 0.0,
+      "area": 170503.0,
+      "power": 12.245,
+      "drc": 59.0
+    },
+    {
+      "node": "SKY130",
+      "design": "CPU Tile",
+      "method": "CRAFT",
+      "model": "Qwen3.5",
+      "area_unit": "µm²",
+      "display": {
+        "ecp": "18.993",
+        "tns": "0.00",
+        "area": "168706",
+        "power": "12.182",
+        "drc": "35"
+      },
+      "ecp": 18.993,
+      "tns": 0.0,
+      "area": 168706.0,
+      "power": 12.182,
+      "drc": 35.0
+    },
+    {
+      "node": "SKY130",
+      "design": "CPU Tile",
+      "method": "CRAFT",
+      "model": "Llama 3.1",
+      "area_unit": "µm²",
+      "display": {
+        "ecp": "19.140",
+        "tns": "0.00",
+        "area": "168925",
+        "power": "12.182",
+        "drc": "33"
+      },
+      "ecp": 19.14,
+      "tns": 0.0,
+      "area": 168925.0,
+      "power": 12.182,
+      "drc": 33.0
+    },
+    {
+      "node": "SKY130",
+      "design": "CPU Tile",
+      "method": "CRAFT",
+      "model": "Ministral 3",
+      "area_unit": "µm²",
+      "display": {
+        "ecp": "18.938",
+        "tns": "0.00",
+        "area": "170401",
+        "power": "12.079",
+        "drc": "4"
+      },
+      "ecp": 18.938,
+      "tns": 0.0,
+      "area": 170401.0,
+      "power": 12.079,
+      "drc": 4.0
+    },
+    {
+      "node": "SKY130",
+      "design": "NoCRouter",
+      "method": "ORFS-Agent",
+      "model": "Qwen3.5",
+      "area_unit": "µm²",
+      "display": {
+        "ecp": "30.023",
+        "tns": "-0.041",
+        "area": "54716.9",
+        "power": "1.984",
+        "drc": "27"
+      },
+      "ecp": 30.023,
+      "tns": -0.041,
+      "area": 54716.9,
+      "power": 1.984,
+      "drc": 27.0
+    },
+    {
+      "node": "SKY130",
+      "design": "NoCRouter",
+      "method": "ORFS-Agent",
+      "model": "Llama 3.1",
+      "area_unit": "µm²",
+      "display": {
+        "ecp": "30.001",
+        "tns": "-0.001",
+        "area": "54830.6",
+        "power": "1.978",
+        "drc": "26"
+      },
+      "ecp": 30.001,
+      "tns": -0.001,
+      "area": 54830.6,
+      "power": 1.978,
+      "drc": 26.0
+    },
+    {
+      "node": "SKY130",
+      "design": "NoCRouter",
+      "method": "ORFS-Agent",
+      "model": "Ministral 3",
+      "area_unit": "µm²",
+      "display": {
+        "ecp": "30.063",
+        "tns": "-0.179",
+        "area": "53830.8",
+        "power": "1.971",
+        "drc": "29"
+      },
+      "ecp": 30.063,
+      "tns": -0.179,
+      "area": 53830.8,
+      "power": 1.971,
+      "drc": 29.0
+    },
+    {
+      "node": "SKY130",
+      "design": "NoCRouter",
+      "method": "AgenticPD",
+      "model": "Qwen3.5",
+      "area_unit": "µm²",
+      "display": {
+        "ecp": "27.912",
+        "tns": "0.00",
+        "area": "53766.9",
+        "power": "1.913",
+        "drc": "3"
+      },
+      "ecp": 27.912,
+      "tns": 0.0,
+      "area": 53766.9,
+      "power": 1.913,
+      "drc": 3.0
+    },
+    {
+      "node": "SKY130",
+      "design": "NoCRouter",
+      "method": "AgenticPD",
+      "model": "Llama 3.1",
+      "area_unit": "µm²",
+      "display": {
+        "ecp": "27.959",
+        "tns": "0.00",
+        "area": "53941.1",
+        "power": "1.901",
+        "drc": "11"
+      },
+      "ecp": 27.959,
+      "tns": 0.0,
+      "area": 53941.1,
+      "power": 1.901,
+      "drc": 11.0
+    },
+    {
+      "node": "SKY130",
+      "design": "NoCRouter",
+      "method": "AgenticPD",
+      "model": "Ministral 3",
+      "area_unit": "µm²",
+      "display": {
+        "ecp": "30.329",
+        "tns": "-2.204",
+        "area": "53745.5",
+        "power": "1.934",
+        "drc": "8"
+      },
+      "ecp": 30.329,
+      "tns": -2.204,
+      "area": 53745.5,
+      "power": 1.934,
+      "drc": 8.0
+    },
+    {
+      "node": "SKY130",
+      "design": "NoCRouter",
+      "method": "CRAFT",
+      "model": "Qwen3.5",
+      "area_unit": "µm²",
+      "display": {
+        "ecp": "26.708",
+        "tns": "0.00",
+        "area": "53665.0",
+        "power": "1.899",
+        "drc": "1"
+      },
+      "ecp": 26.708,
+      "tns": 0.0,
+      "area": 53665.0,
+      "power": 1.899,
+      "drc": 1.0
+    },
+    {
+      "node": "SKY130",
+      "design": "NoCRouter",
+      "method": "CRAFT",
+      "model": "Llama 3.1",
+      "area_unit": "µm²",
+      "display": {
+        "ecp": "27.100",
+        "tns": "0.00",
+        "area": "53704.3",
+        "power": "1.898",
+        "drc": "4"
+      },
+      "ecp": 27.1,
+      "tns": 0.0,
+      "area": 53704.3,
+      "power": 1.898,
+      "drc": 4.0
+    },
+    {
+      "node": "SKY130",
+      "design": "NoCRouter",
+      "method": "CRAFT",
+      "model": "Ministral 3",
+      "area_unit": "µm²",
+      "display": {
+        "ecp": "27.083",
+        "tns": "0.00",
+        "area": "53682.3",
+        "power": "1.905",
+        "drc": "6"
+      },
+      "ecp": 27.083,
+      "tns": 0.0,
+      "area": 53682.3,
+      "power": 1.905,
+      "drc": 6.0
+    },
+    {
+      "node": "SKY130",
+      "design": "RISC-V CPU",
+      "method": "ORFS-Agent",
+      "model": "Qwen3.5",
+      "area_unit": "mm²",
+      "display": {
+        "ecp": "41.852",
+        "tns": "-5.276",
+        "area": "32.17",
+        "power": "104.98",
+        "drc": "88"
+      },
+      "ecp": 41.852,
+      "tns": -5.276,
+      "area": 32.17,
+      "power": 104.98,
+      "drc": 88.0
+    },
+    {
+      "node": "SKY130",
+      "design": "RISC-V CPU",
+      "method": "ORFS-Agent",
+      "model": "Llama 3.1",
+      "area_unit": "mm²",
+      "display": {
+        "ecp": "46.863",
+        "tns": "-66.70",
+        "area": "32.85",
+        "power": "104.92",
+        "drc": "94"
+      },
+      "ecp": 46.863,
+      "tns": -66.7,
+      "area": 32.85,
+      "power": 104.92,
+      "drc": 94.0
+    },
+    {
+      "node": "SKY130",
+      "design": "RISC-V CPU",
+      "method": "ORFS-Agent",
+      "model": "Ministral 3",
+      "area_unit": "mm²",
+      "display": {
+        "ecp": "42.970",
+        "tns": "-5.401",
+        "area": "32.97",
+        "power": "105.93",
+        "drc": "113"
+      },
+      "ecp": 42.97,
+      "tns": -5.401,
+      "area": 32.97,
+      "power": 105.93,
+      "drc": 113.0
+    },
+    {
+      "node": "SKY130",
+      "design": "RISC-V CPU",
+      "method": "AgenticPD",
+      "model": "Qwen3.5",
+      "area_unit": "mm²",
+      "display": {
+        "ecp": "41.334",
+        "tns": "-6.278",
+        "area": "32.14",
+        "power": "103.99",
+        "drc": "83"
+      },
+      "ecp": 41.334,
+      "tns": -6.278,
+      "area": 32.14,
+      "power": 103.99,
+      "drc": 83.0
+    },
+    {
+      "node": "SKY130",
+      "design": "RISC-V CPU",
+      "method": "AgenticPD",
+      "model": "Llama 3.1",
+      "area_unit": "mm²",
+      "display": {
+        "ecp": "41.579",
+        "tns": "-5.150",
+        "area": "32.33",
+        "power": "106.15",
+        "drc": "194"
+      },
+      "ecp": 41.579,
+      "tns": -5.15,
+      "area": 32.33,
+      "power": 106.15,
+      "drc": 194.0
+    },
+    {
+      "node": "SKY130",
+      "design": "RISC-V CPU",
+      "method": "AgenticPD",
+      "model": "Ministral 3",
+      "area_unit": "mm²",
+      "display": {
+        "ecp": "41.820",
+        "tns": "-5.628",
+        "area": "31.91",
+        "power": "103.92",
+        "drc": "94"
+      },
+      "ecp": 41.82,
+      "tns": -5.628,
+      "area": 31.91,
+      "power": 103.92,
+      "drc": 94.0
+    },
+    {
+      "node": "SKY130",
+      "design": "RISC-V CPU",
+      "method": "CRAFT",
+      "model": "Qwen3.5",
+      "area_unit": "mm²",
+      "display": {
+        "ecp": "39.582",
+        "tns": "0.00",
+        "area": "31.91",
+        "power": "103.92",
+        "drc": "72"
+      },
+      "ecp": 39.582,
+      "tns": 0.0,
+      "area": 31.91,
+      "power": 103.92,
+      "drc": 72.0
+    },
+    {
+      "node": "SKY130",
+      "design": "RISC-V CPU",
+      "method": "CRAFT",
+      "model": "Llama 3.1",
+      "area_unit": "mm²",
+      "display": {
+        "ecp": "39.920",
+        "tns": "0.00",
+        "area": "31.92",
+        "power": "103.98",
+        "drc": "76"
+      },
+      "ecp": 39.92,
+      "tns": 0.0,
+      "area": 31.92,
+      "power": 103.98,
+      "drc": 76.0
+    },
+    {
+      "node": "SKY130",
+      "design": "RISC-V CPU",
+      "method": "CRAFT",
+      "model": "Ministral 3",
+      "area_unit": "mm²",
+      "display": {
+        "ecp": "39.948",
+        "tns": "0.00",
+        "area": "31.90",
+        "power": "103.91",
+        "drc": "83"
+      },
+      "ecp": 39.948,
+      "tns": 0.0,
+      "area": 31.9,
+      "power": 103.91,
+      "drc": 83.0
+    },
+    {
+      "node": "Commercial 28nm",
+      "design": "CPU Tile",
+      "method": "ORFS-Agent",
+      "model": "Qwen3.5",
+      "area_unit": "µm²",
+      "display": {
+        "ecp": "10.994",
+        "tns": "0.00",
+        "area": "14411.6",
+        "power": "1.220",
+        "drc": "0"
+      },
+      "ecp": 10.994,
+      "tns": 0.0,
+      "area": 14411.6,
+      "power": 1.22,
+      "drc": 0.0
+    },
+    {
+      "node": "Commercial 28nm",
+      "design": "CPU Tile",
+      "method": "ORFS-Agent",
+      "model": "Llama 3.1",
+      "area_unit": "µm²",
+      "display": {
+        "ecp": "11.126",
+        "tns": "0.00",
+        "area": "14408.1",
+        "power": "1.191",
+        "drc": "2"
+      },
+      "ecp": 11.126,
+      "tns": 0.0,
+      "area": 14408.1,
+      "power": 1.191,
+      "drc": 2.0
+    },
+    {
+      "node": "Commercial 28nm",
+      "design": "CPU Tile",
+      "method": "ORFS-Agent",
+      "model": "Ministral 3",
+      "area_unit": "µm²",
+      "display": {
+        "ecp": "11.275",
+        "tns": "0.00",
+        "area": "14408.1",
+        "power": "1.192",
+        "drc": "2"
+      },
+      "ecp": 11.275,
+      "tns": 0.0,
+      "area": 14408.1,
+      "power": 1.192,
+      "drc": 2.0
+    },
+    {
+      "node": "Commercial 28nm",
+      "design": "CPU Tile",
+      "method": "AgenticPD",
+      "model": "Qwen3.5",
+      "area_unit": "µm²",
+      "display": {
+        "ecp": "10.999",
+        "tns": "0.00",
+        "area": "14364.3",
+        "power": "1.227",
+        "drc": "0"
+      },
+      "ecp": 10.999,
+      "tns": 0.0,
+      "area": 14364.3,
+      "power": 1.227,
+      "drc": 0.0
+    },
+    {
+      "node": "Commercial 28nm",
+      "design": "CPU Tile",
+      "method": "AgenticPD",
+      "model": "Llama 3.1",
+      "area_unit": "µm²",
+      "display": {
+        "ecp": "10.994",
+        "tns": "0.00",
+        "area": "14297.7",
+        "power": "1.309",
+        "drc": "1"
+      },
+      "ecp": 10.994,
+      "tns": 0.0,
+      "area": 14297.7,
+      "power": 1.309,
+      "drc": 1.0
+    },
+    {
+      "node": "Commercial 28nm",
+      "design": "CPU Tile",
+      "method": "AgenticPD",
+      "model": "Ministral 3",
+      "area_unit": "µm²",
+      "display": {
+        "ecp": "11.161",
+        "tns": "0.00",
+        "area": "14354.7",
+        "power": "1.228",
+        "drc": "1"
+      },
+      "ecp": 11.161,
+      "tns": 0.0,
+      "area": 14354.7,
+      "power": 1.228,
+      "drc": 1.0
+    },
+    {
+      "node": "Commercial 28nm",
+      "design": "CPU Tile",
+      "method": "CRAFT",
+      "model": "Qwen3.5",
+      "area_unit": "µm²",
+      "display": {
+        "ecp": "10.034",
+        "tns": "0.00",
+        "area": "14236.3",
+        "power": "1.209",
+        "drc": "0"
+      },
+      "ecp": 10.034,
+      "tns": 0.0,
+      "area": 14236.3,
+      "power": 1.209,
+      "drc": 0.0
+    },
+    {
+      "node": "Commercial 28nm",
+      "design": "CPU Tile",
+      "method": "CRAFT",
+      "model": "Llama 3.1",
+      "area_unit": "µm²",
+      "display": {
+        "ecp": "10.409",
+        "tns": "0.00",
+        "area": "14161.4",
+        "power": "1.168",
+        "drc": "0"
+      },
+      "ecp": 10.409,
+      "tns": 0.0,
+      "area": 14161.4,
+      "power": 1.168,
+      "drc": 0.0
+    },
+    {
+      "node": "Commercial 28nm",
+      "design": "CPU Tile",
+      "method": "CRAFT",
+      "model": "Ministral 3",
+      "area_unit": "µm²",
+      "display": {
+        "ecp": "10.948",
+        "tns": "0.00",
+        "area": "14241.6",
+        "power": "1.191",
+        "drc": "0"
+      },
+      "ecp": 10.948,
+      "tns": 0.0,
+      "area": 14241.6,
+      "power": 1.191,
+      "drc": 0.0
+    },
+    {
+      "node": "Commercial 28nm",
+      "design": "NoCRouter",
+      "method": "ORFS-Agent",
+      "model": "Qwen3.5",
+      "area_unit": "µm²",
+      "display": {
+        "ecp": "17.912",
+        "tns": "0.00",
+        "area": "53657.4",
+        "power": "1.900",
+        "drc": "12"
+      },
+      "ecp": 17.912,
+      "tns": 0.0,
+      "area": 53657.4,
+      "power": 1.9,
+      "drc": 12.0
+    },
+    {
+      "node": "Commercial 28nm",
+      "design": "NoCRouter",
+      "method": "ORFS-Agent",
+      "model": "Llama 3.1",
+      "area_unit": "µm²",
+      "display": {
+        "ecp": "17.959",
+        "tns": "0.00",
+        "area": "53657.5",
+        "power": "1.899",
+        "drc": "14"
+      },
+      "ecp": 17.959,
+      "tns": 0.0,
+      "area": 53657.5,
+      "power": 1.899,
+      "drc": 14.0
+    },
+    {
+      "node": "Commercial 28nm",
+      "design": "NoCRouter",
+      "method": "ORFS-Agent",
+      "model": "Ministral 3",
+      "area_unit": "µm²",
+      "display": {
+        "ecp": "17.364",
+        "tns": "0.00",
+        "area": "53700.3",
+        "power": "1.905",
+        "drc": "3"
+      },
+      "ecp": 17.364,
+      "tns": 0.0,
+      "area": 53700.3,
+      "power": 1.905,
+      "drc": 3.0
+    },
+    {
+      "node": "Commercial 28nm",
+      "design": "NoCRouter",
+      "method": "AgenticPD",
+      "model": "Qwen3.5",
+      "area_unit": "µm²",
+      "display": {
+        "ecp": "17.905",
+        "tns": "0.00",
+        "area": "53746.6",
+        "power": "1.913",
+        "drc": "0"
+      },
+      "ecp": 17.905,
+      "tns": 0.0,
+      "area": 53746.6,
+      "power": 1.913,
+      "drc": 0.0
+    },
+    {
+      "node": "Commercial 28nm",
+      "design": "NoCRouter",
+      "method": "AgenticPD",
+      "model": "Llama 3.1",
+      "area_unit": "µm²",
+      "display": {
+        "ecp": "17.682",
+        "tns": "0.00",
+        "area": "53665.7",
+        "power": "1.898",
+        "drc": "4"
+      },
+      "ecp": 17.682,
+      "tns": 0.0,
+      "area": 53665.7,
+      "power": 1.898,
+      "drc": 4.0
+    },
+    {
+      "node": "Commercial 28nm",
+      "design": "NoCRouter",
+      "method": "AgenticPD",
+      "model": "Ministral 3",
+      "area_unit": "µm²",
+      "display": {
+        "ecp": "17.958",
+        "tns": "0.00",
+        "area": "53670.1",
+        "power": "1.899",
+        "drc": "9"
+      },
+      "ecp": 17.958,
+      "tns": 0.0,
+      "area": 53670.1,
+      "power": 1.899,
+      "drc": 9.0
+    },
+    {
+      "node": "Commercial 28nm",
+      "design": "NoCRouter",
+      "method": "CRAFT",
+      "model": "Qwen3.5",
+      "area_unit": "µm²",
+      "display": {
+        "ecp": "17.105",
+        "tns": "0.00",
+        "area": "53657.1",
+        "power": "1.899",
+        "drc": "0"
+      },
+      "ecp": 17.105,
+      "tns": 0.0,
+      "area": 53657.1,
+      "power": 1.899,
+      "drc": 0.0
+    },
+    {
+      "node": "Commercial 28nm",
+      "design": "NoCRouter",
+      "method": "CRAFT",
+      "model": "Llama 3.1",
+      "area_unit": "µm²",
+      "display": {
+        "ecp": "17.236",
+        "tns": "0.00",
+        "area": "53686.8",
+        "power": "1.895",
+        "drc": "0"
+      },
+      "ecp": 17.236,
+      "tns": 0.0,
+      "area": 53686.8,
+      "power": 1.895,
+      "drc": 0.0
+    },
+    {
+      "node": "Commercial 28nm",
+      "design": "NoCRouter",
+      "method": "CRAFT",
+      "model": "Ministral 3",
+      "area_unit": "µm²",
+      "display": {
+        "ecp": "17.345",
+        "tns": "0.00",
+        "area": "53568.1",
+        "power": "1.895",
+        "drc": "0"
+      },
+      "ecp": 17.345,
+      "tns": 0.0,
+      "area": 53568.1,
+      "power": 1.895,
+      "drc": 0.0
+    },
+    {
+      "node": "Commercial 28nm",
+      "design": "RISC-V CPU",
+      "method": "ORFS-Agent",
+      "model": "Qwen3.5",
+      "area_unit": "mm²",
+      "display": {
+        "ecp": "29.952",
+        "tns": "0.00",
+        "area": "1.199",
+        "power": "5.627",
+        "drc": "45"
+      },
+      "ecp": 29.952,
+      "tns": 0.0,
+      "area": 1.199,
+      "power": 5.627,
+      "drc": 45.0
+    },
+    {
+      "node": "Commercial 28nm",
+      "design": "RISC-V CPU",
+      "method": "ORFS-Agent",
+      "model": "Llama 3.1",
+      "area_unit": "mm²",
+      "display": {
+        "ecp": "31.428",
+        "tns": "-8.01",
+        "area": "1.202",
+        "power": "5.576",
+        "drc": "56"
+      },
+      "ecp": 31.428,
+      "tns": -8.01,
+      "area": 1.202,
+      "power": 5.576,
+      "drc": 56.0
+    },
+    {
+      "node": "Commercial 28nm",
+      "design": "RISC-V CPU",
+      "method": "ORFS-Agent",
+      "model": "Ministral 3",
+      "area_unit": "mm²",
+      "display": {
+        "ecp": "31.208",
+        "tns": "-7.67",
+        "area": "1.209",
+        "power": "5.585",
+        "drc": "44"
+      },
+      "ecp": 31.208,
+      "tns": -7.67,
+      "area": 1.209,
+      "power": 5.585,
+      "drc": 44.0
+    },
+    {
+      "node": "Commercial 28nm",
+      "design": "RISC-V CPU",
+      "method": "AgenticPD",
+      "model": "Qwen3.5",
+      "area_unit": "mm²",
+      "display": {
+        "ecp": "29.725",
+        "tns": "0.00",
+        "area": "1.200",
+        "power": "5.571",
+        "drc": "59"
+      },
+      "ecp": 29.725,
+      "tns": 0.0,
+      "area": 1.2,
+      "power": 5.571,
+      "drc": 59.0
+    },
+    {
+      "node": "Commercial 28nm",
+      "design": "RISC-V CPU",
+      "method": "AgenticPD",
+      "model": "Llama 3.1",
+      "area_unit": "mm²",
+      "display": {
+        "ecp": "32.871",
+        "tns": "-8.84",
+        "area": "1.203",
+        "power": "5.655",
+        "drc": "51"
+      },
+      "ecp": 32.871,
+      "tns": -8.84,
+      "area": 1.203,
+      "power": 5.655,
+      "drc": 51.0
+    },
+    {
+      "node": "Commercial 28nm",
+      "design": "RISC-V CPU",
+      "method": "AgenticPD",
+      "model": "Ministral 3",
+      "area_unit": "mm²",
+      "display": {
+        "ecp": "32.941",
+        "tns": "-37.2",
+        "area": "1.203",
+        "power": "5.572",
+        "drc": "30"
+      },
+      "ecp": 32.941,
+      "tns": -37.2,
+      "area": 1.203,
+      "power": 5.572,
+      "drc": 30.0
+    },
+    {
+      "node": "Commercial 28nm",
+      "design": "RISC-V CPU",
+      "method": "CRAFT",
+      "model": "Qwen3.5",
+      "area_unit": "mm²",
+      "display": {
+        "ecp": "29.247",
+        "tns": "0.00",
+        "area": "1.198",
+        "power": "5.485",
+        "drc": "44"
+      },
+      "ecp": 29.247,
+      "tns": 0.0,
+      "area": 1.198,
+      "power": 5.485,
+      "drc": 44.0
+    },
+    {
+      "node": "Commercial 28nm",
+      "design": "RISC-V CPU",
+      "method": "CRAFT",
+      "model": "Llama 3.1",
+      "area_unit": "mm²",
+      "display": {
+        "ecp": "28.336",
+        "tns": "0.00",
+        "area": "1.200",
+        "power": "5.532",
+        "drc": "37"
+      },
+      "ecp": 28.336,
+      "tns": 0.0,
+      "area": 1.2,
+      "power": 5.532,
+      "drc": 37.0
+    },
+    {
+      "node": "Commercial 28nm",
+      "design": "RISC-V CPU",
+      "method": "CRAFT",
+      "model": "Ministral 3",
+      "area_unit": "mm²",
+      "display": {
+        "ecp": "26.995",
+        "tns": "0.00",
+        "area": "1.202",
+        "power": "5.537",
+        "drc": "35"
+      },
+      "ecp": 26.995,
+      "tns": 0.0,
+      "area": 1.202,
+      "power": 5.537,
+      "drc": 35.0
+    }
+  ],
+  "tuner_source": "Post-route comparison across three benchmark designs at 28nm",
+  "tuner_comparison": [
+    {
+      "node": "Commercial 28nm",
+      "design": "CPU Tile",
+      "method": "KnownBO",
+      "display": {
+        "ecp": "11.409",
+        "tns": "0.00",
+        "area": "14161.3",
+        "power": "1.309",
+        "drc": "5"
+      },
+      "ecp": 11.409,
+      "tns": 0.0,
+      "area": 14161.3,
+      "power": 1.309,
+      "drc": 5.0
+    },
+    {
+      "node": "Commercial 28nm",
+      "design": "CPU Tile",
+      "method": "FastTuner",
+      "display": {
+        "ecp": "11.099",
+        "tns": "0.00",
+        "area": "14365.0",
+        "power": "1.221",
+        "drc": "8"
+      },
+      "ecp": 11.099,
+      "tns": 0.0,
+      "area": 14365.0,
+      "power": 1.221,
+      "drc": 8.0
+    },
+    {
+      "node": "Commercial 28nm",
+      "design": "CPU Tile",
+      "method": "FlowMatters",
+      "display": {
+        "ecp": "11.097",
+        "tns": "0.00",
+        "area": "14418.6",
+        "power": "1.317",
+        "drc": "7"
+      },
+      "ecp": 11.097,
+      "tns": 0.0,
+      "area": 14418.6,
+      "power": 1.317,
+      "drc": 7.0
+    },
+    {
+      "node": "Commercial 28nm",
+      "design": "CPU Tile",
+      "method": "CRAFT",
+      "display": {
+        "ecp": "10.034",
+        "tns": "0.00",
+        "area": "14236.3",
+        "power": "1.209",
+        "drc": "0"
+      },
+      "ecp": 10.034,
+      "tns": 0.0,
+      "area": 14236.3,
+      "power": 1.209,
+      "drc": 0.0
+    },
+    {
+      "node": "Commercial 28nm",
+      "design": "NoCRouter",
+      "method": "KnownBO",
+      "display": {
+        "ecp": "18.158",
+        "tns": "0.00",
+        "area": "53719.2",
+        "power": "1.935",
+        "drc": "6"
+      },
+      "ecp": 18.158,
+      "tns": 0.0,
+      "area": 53719.2,
+      "power": 1.935,
+      "drc": 6.0
+    },
+    {
+      "node": "Commercial 28nm",
+      "design": "NoCRouter",
+      "method": "FastTuner",
+      "display": {
+        "ecp": "18.297",
+        "tns": "0.00",
+        "area": "53686.8",
+        "power": "1.901",
+        "drc": "6"
+      },
+      "ecp": 18.297,
+      "tns": 0.0,
+      "area": 53686.8,
+      "power": 1.901,
+      "drc": 6.0
+    },
+    {
+      "node": "Commercial 28nm",
+      "design": "NoCRouter",
+      "method": "FlowMatters",
+      "display": {
+        "ecp": "18.364",
+        "tns": "0.00",
+        "area": "53692.4",
+        "power": "1.900",
+        "drc": "4"
+      },
+      "ecp": 18.364,
+      "tns": 0.0,
+      "area": 53692.4,
+      "power": 1.9,
+      "drc": 4.0
+    },
+    {
+      "node": "Commercial 28nm",
+      "design": "NoCRouter",
+      "method": "CRAFT",
+      "display": {
+        "ecp": "17.105",
+        "tns": "0.00",
+        "area": "53657.1",
+        "power": "1.899",
+        "drc": "0"
+      },
+      "ecp": 17.105,
+      "tns": 0.0,
+      "area": 53657.1,
+      "power": 1.899,
+      "drc": 0.0
+    },
+    {
+      "node": "Commercial 28nm",
+      "design": "RISC-V CPU",
+      "method": "KnownBO",
+      "display": {
+        "ecp": "32.509",
+        "tns": "-7.10",
+        "area": "1.200",
+        "power": "5.638",
+        "drc": "52"
+      },
+      "ecp": 32.509,
+      "tns": -7.1,
+      "area": 1.2,
+      "power": 5.638,
+      "drc": 52.0
+    },
+    {
+      "node": "Commercial 28nm",
+      "design": "RISC-V CPU",
+      "method": "FastTuner",
+      "display": {
+        "ecp": "32.628",
+        "tns": "-7.70",
+        "area": "1.201",
+        "power": "5.537",
+        "drc": "60"
+      },
+      "ecp": 32.628,
+      "tns": -7.7,
+      "area": 1.201,
+      "power": 5.537,
+      "drc": 60.0
+    },
+    {
+      "node": "Commercial 28nm",
+      "design": "RISC-V CPU",
+      "method": "FlowMatters",
+      "display": {
+        "ecp": "32.827",
+        "tns": "-7.92",
+        "area": "1.201",
+        "power": "5.627",
+        "drc": "48"
+      },
+      "ecp": 32.827,
+      "tns": -7.92,
+      "area": 1.201,
+      "power": 5.627,
+      "drc": 48.0
+    },
+    {
+      "node": "Commercial 28nm",
+      "design": "RISC-V CPU",
+      "method": "CRAFT",
+      "display": {
+        "ecp": "29.247",
+        "tns": "0.00",
+        "area": "1.198",
+        "power": "5.485",
+        "drc": "44"
+      },
+      "ecp": 29.247,
+      "tns": 0.0,
+      "area": 1.198,
+      "power": 5.485,
+      "drc": 44.0
+    }
+  ],
+  "setup": {
+    "source": "Experimental Setup · Benchmark Designs with Two Process Nodes; Methodology · Primary EDA Tool Parameters and Physical Adjustments",
+    "benchmarks": [
+      {
+        "design": "CPU Tile",
+        "sky130_clock_ns": 20.0,
+        "sky130_cells": 13891,
+        "nm28_clock_ns": 20.0,
+        "nm28_cells": 14992,
+        "budget_hours": 8
+      },
+      {
+        "design": "NoCRouter",
+        "sky130_clock_ns": 30.0,
+        "sky130_cells": 51108,
+        "nm28_clock_ns": 20.0,
+        "nm28_cells": 54530,
+        "budget_hours": 16
+      },
+      {
+        "design": "RISC-V CPU",
+        "sky130_clock_ns": 40.0,
+        "sky130_cells": 123040,
+        "nm28_clock_ns": 30.0,
+        "nm28_cells": 136416,
+        "budget_hours": 40
+      }
+    ],
+    "parameter_count": 46,
+    "physical_adjustment_count": 6,
+    "iteration_target": [
+      20,
+      40
+    ],
+    "synthesis": "Cadence Genus",
+    "physical_design": "Cadence Innovus",
+    "power_analysis": "Cadence Joules 201",
+    "llms": [
+      "Qwen3.5",
+      "Llama 3.1",
+      "Ministral 3"
+    ],
+    "cpu": "2 × Intel Xeon Platinum 8462Y+",
+    "gpu": "1 × NVIDIA H100",
+    "action_groups": [
+      {
+        "stage": "Logic synthesis",
+        "total": 10,
+        "examples": [
+          {
+            "parameter": "syn_generic_effort",
+            "candidates": [
+              "low",
+              "medium",
+              "high"
+            ]
+          },
+          {
+            "parameter": "syn_map_effort",
+            "candidates": [
+              "low",
+              "medium",
+              "high"
+            ]
+          },
+          {
+            "parameter": "syn_opt_effort",
+            "candidates": [
+              "none",
+              "low",
+              "medium",
+              "high"
+            ]
+          }
+        ]
+      },
+      {
+        "stage": "Floorplan",
+        "total": 6,
+        "examples": [
+          {
+            "parameter": "std_density",
+            "candidates": [
+              "0.50",
+              "0.60",
+              "0.70",
+              "0.75",
+              "0.80"
+            ]
+          },
+          {
+            "parameter": "core_margin",
+            "candidates": [
+              "io",
+              "pin"
+            ]
+          },
+          {
+            "parameter": "core_Left/Bottom/Right/Top",
+            "candidates": [
+              "1.0",
+              "2.5",
+              "5.0"
+            ]
+          }
+        ]
+      },
+      {
+        "stage": "Placement",
+        "total": 12,
+        "examples": [
+          {
+            "parameter": "place_global_cong_effort",
+            "candidates": [
+              "low",
+              "medium",
+              "high",
+              "auto"
+            ]
+          },
+          {
+            "parameter": "cell_padding",
+            "candidates": [
+              "0",
+              "1",
+              "2",
+              "3",
+              "4"
+            ]
+          }
+        ]
+      },
+      {
+        "stage": "CTS",
+        "total": 10,
+        "examples": [
+          {
+            "parameter": "useful_skew",
+            "candidates": [
+              "false",
+              "true"
+            ]
+          },
+          {
+            "parameter": "useful_skew_ccopt_effort",
+            "candidates": [
+              "none",
+              "standard",
+              "medium",
+              "extreme"
+            ]
+          },
+          {
+            "parameter": "clone_clock_gates",
+            "candidates": [
+              "false",
+              "true"
+            ]
+          }
+        ]
+      },
+      {
+        "stage": "Routing",
+        "total": 8,
+        "examples": [
+          {
+            "parameter": "hold_target_slack",
+            "candidates": [
+              "2%",
+              "2.5%",
+              "5%"
+            ]
+          },
+          {
+            "parameter": "setup_target_slack",
+            "candidates": [
+              "2%",
+              "2.5%",
+              "5%"
+            ]
+          },
+          {
+            "parameter": "postroute_cong_effort",
+            "candidates": [
+              "low",
+              "medium",
+              "high"
+            ]
+          }
+        ]
+      },
+      {
+        "stage": "Physical adjustments",
+        "total": 6,
+        "examples": [
+          {
+            "parameter": "Timing constraint",
+            "candidates": [
+              "Decrease",
+              "Unchanged",
+              "Increase"
+            ]
+          },
+          {
+            "parameter": "Floorplan die size",
+            "candidates": [
+              "Decrease",
+              "Unchanged",
+              "Increase"
+            ]
+          },
+          {
+            "parameter": "Macro placement",
+            "candidates": [
+              "Left",
+              "Right",
+              "Up",
+              "Down"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}
