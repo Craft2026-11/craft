@@ -28,3 +28,9 @@ The public export contains no account database or login server. The independent 
 `data/paper-results.json` transcribes the manuscript’s settings and results. Missing source units are explicitly identified. Raw experiment workspaces, commercial design databases, PDKs, the manuscript source archive and complete tool integrations are not distributed here.
 
 The four layout panels embedded in the manuscript PDF are approximately 300 × 300 pixels. The homepage uses the native 305 × 299 CRAFT CPU Tile panel without enlarging it beyond its pixel dimensions; the full Figure 6 remains available. Higher-resolution physical detail requires original EDA exports.
+
+## Conceptual flow animation
+
+[Watch the flow](https://craft2026-11.github.io/craft/#pipeline): a 15-step explanation of synthesis, floorplanning, placement, CTS and routing under cross-stage agent control. The example shows reports returning to the agent, bounded placement/CTS revisions, compatible checkpoint reuse, downstream re-execution and independent evaluation.
+
+Play, pause, step, seek, change speed or inspect an individual stage. Playback suspends offscreen; reduced-motion preferences disable autoplay and moving effects. All circuit graphics and the intervention sequence are illustrative, not experimental measurements or a claim of successful optimization. The animation runs entirely in the browser and needs no EDA installation, LLM service or API token.
