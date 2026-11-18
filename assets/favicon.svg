@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256" role="img" aria-labelledby="title desc">
 <title id="title">CRAFT project mark</title>
-<desc id="desc">A geometric navy C and a gold forward arrow, representing evidence carried into the next engineering iteration.</desc>
+<desc id="desc">A single navy C with a gold terminal on a pale blue background.</desc>
 <rect width="256" height="256" rx="48" fill="#f9faff"/>
-<path d="M184 48H92L48 92v72l44 44h92v-40h-76l-20-20v-40l20-20h76Z" fill="#24366f"/>
-<path d="M144 112h40V88l40 40-40 40v-24h-40Z" fill="#efb63b"/>
+<path d="M198 48h-70a80 80 0 1 0 0 160h70v-38h-70a42 42 0 1 1 0-84h70Z" fill="#24366f"/>
+<path d="M160 48h38v38h-38Z" fill="#efb63b"/>
 </svg>

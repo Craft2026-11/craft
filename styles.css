@@ -25,3 +25,6 @@ html{scroll-padding-top:105px}.header{height:82px;background:#f9fafff5;backdrop-
 .resource-grid>a,.resource-grid>button{background:#f9faff;border-radius:8px;transition:background .15s,border-color .15s}
 .resource-grid>a:hover,.resource-grid>button:hover{border-color:#8ca7d6}
 ::selection{background:#d9e6ff;color:#24366f}
+
+/* Native manuscript panel: avoid enlarging the 305 x 299 source raster. */
+.chip-window{width:min(100%,305px);height:auto;aspect-ratio:305 / 299;margin-inline:auto;background-image:url('assets/layout-cpu-tile.png');background-size:contain;background-position:center;background-color:transparent}

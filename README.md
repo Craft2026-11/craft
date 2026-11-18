@@ -26,3 +26,5 @@ The public export contains no account database or login server. The independent 
 ## Evidence and scope
 
 `data/paper-results.json` transcribes the manuscript’s settings and results. Missing source units are explicitly identified. Raw experiment workspaces, commercial design databases, PDKs, the manuscript source archive and complete tool integrations are not distributed here.
+
+The four layout panels embedded in the manuscript PDF are approximately 300 × 300 pixels. The homepage uses the native 305 × 299 CRAFT CPU Tile panel without enlarging it beyond its pixel dimensions; the full Figure 6 remains available. Higher-resolution physical detail requires original EDA exports.
