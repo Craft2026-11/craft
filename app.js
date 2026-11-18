@@ -59,12 +59,33 @@ renderTrace(0);
 const dialog = document.getElementById('figure-dialog');
 document.querySelectorAll('[data-image]').forEach(button => button.addEventListener('click', () => {
   const img = document.getElementById('dialog-img');
+  const layout = button.dataset.layout === 'true';
+  dialog.classList.toggle('layout-dialog', layout);
+  img.classList.remove('native-resolution');
+  const scale = document.getElementById('dialog-scale');
+  scale.hidden = !layout;
+  scale.textContent = 'Actual size';
+  scale.setAttribute('aria-pressed', 'false');
+  const download = document.getElementById('dialog-download');
+  download.hidden = !layout;
+  if (layout) download.href = button.dataset.image;
+  else download.removeAttribute('href');
+  document.getElementById('dialog-help').textContent = layout ? 'Innovus export · Actual size for detail · Scroll to pan · Escape to close' : 'Original manuscript figure · Scroll for detail · Escape to close.';
+  const viewport = dialog.querySelector('.dialog-image');
+  viewport.scrollTop = 0;
+  viewport.scrollLeft = 0;
   img.src = button.dataset.image;
   img.alt = button.dataset.caption;
   document.getElementById('dialog-caption').textContent = button.dataset.caption;
   dialog.showModal();
   document.body.style.overflow = 'hidden';
 }));
+document.getElementById('dialog-scale').addEventListener('click', () => {
+  const native = document.getElementById('dialog-img').classList.toggle('native-resolution');
+  const button = document.getElementById('dialog-scale');
+  button.textContent = native ? 'Fit to view' : 'Actual size';
+  button.setAttribute('aria-pressed', String(native));
+});
 document.getElementById('close-dialog').addEventListener('click', () => dialog.close());
 dialog.addEventListener('close', () => { document.body.style.overflow = ''; });
 dialog.addEventListener('click', event => {

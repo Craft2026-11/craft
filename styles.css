@@ -149,3 +149,26 @@ html{scroll-padding-top:105px}.header{height:82px;background:#f9fafff5;backdrop-
 @media(max-width:700px){.decision-workspace{padding:24px 20px 18px}.decision-heading{display:block}.decision-heading h4{font-size:23px}.decision-demo-tag{display:inline-block;margin-top:12px}.decision-columns{grid-template-columns:1fr}.decision-controls{gap:10px}.decision-stages{gap:6px}.decision-stages button{padding:7px 9px}.trace-caption{align-items:start}.decision-steps li{gap:10px}.decision-steps p{font-size:12px}.engineer-review{display:grid;grid-template-columns:95px minmax(0,1fr);column-gap:16px;padding:20px 0 0}.engineer-portrait{grid-column:1;grid-row:1/4;margin:0}.engineer-review>.eyebrow,.engineer-review>h5{grid-column:2}.engineer-review h5{margin:0 0 17px}.engineer-question,.review-contract,.engineer-caption,.trace-paper-link{grid-column:1/-1}.engineer-question:before{left:44px}.pipeline-motion-note{padding:10px 20px}}
 /* Keep the static flow visible even in engines without overflow:clip. */
 @supports not (overflow:clip){.pipeline-demo{overflow:visible}}
+
+/* Actual Innovus exports, separate from the manuscript comparison. */
+.chip-window{width:100%;max-width:410px;aspect-ratio:1;height:auto;background-image:url('assets/innovus-cpu-tile-preview.png');background-color:#000;border-color:#d2dced}
+.final-layout-gallery{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
+.final-layout-card{min-width:0;background:#fff;border:1px solid #cbd8ed;border-radius:10px;overflow:hidden;box-shadow:0 12px 30px -26px #24366f}
+.layout-open{display:block;position:relative;width:100%;padding:0;background:#000;text-align:left}
+.layout-open img{display:block;width:100%;height:auto;aspect-ratio:1}
+.layout-open>span{position:absolute;right:12px;bottom:12px;padding:6px 10px;background:#f9faff;color:var(--ink);border:1px solid var(--line);border-radius:4px;font-size:10px}
+.layout-open:hover>span{background:#e1ebfd}
+.final-layout-card figcaption{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:18px 17px;flex-wrap:wrap}
+.final-layout-card figcaption strong{font:500 18px/1.4 Arial,sans-serif;letter-spacing:-.3px}
+.final-layout-card figcaption span{font:8px/1.7 var(--mono);letter-spacing:.5px}
+.layout-gallery-note{margin-top:18px;color:var(--muted);font-size:11px;line-height:1.8}
+.layout-manuscript-heading{margin-top:45px;padding-top:32px;border-top:1px solid #cbd8ed;margin-bottom:22px}
+.layout-manuscript-heading .eyebrow{font-size:9px;margin-bottom:10px}.layout-manuscript-heading h3{font-size:25px;margin-bottom:12px}.layout-manuscript-heading>p:last-child{font-size:12px;color:var(--muted)}
+.dialog-tools{display:flex;align-items:center;gap:10px;flex-wrap:wrap;justify-content:flex-end}
+.dialog-tools a{font-size:11px;padding:7px 10px;border:1px solid var(--line);border-radius:3px;white-space:nowrap}
+.dialog-tools [hidden]{display:none}
+.layout-dialog .dialog-image img{width:auto;max-width:100%;max-height:65vh;margin:0 auto}
+.layout-dialog .dialog-image img.native-resolution{width:auto;max-width:none;max-height:none;margin:0}
+.layout-dialog .dialog-image{background:#000;padding:0}
+@media(max-width:850px){.final-layout-gallery{gap:14px}.final-layout-card figcaption{padding:14px}.final-layout-card figcaption strong{font-size:16px}}
+@media(max-width:650px){.final-layout-gallery{grid-template-columns:1fr;gap:22px}.layout-gallery-note{font-size:10px}.dialog-head{flex-wrap:wrap;gap:10px}.dialog-tools{width:100%;justify-content:flex-start}.dialog-tools #close-dialog{margin-left:auto}.dialog-tools a{font-size:10px}.layout-dialog .dialog-image img{max-height:60vh}}

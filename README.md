@@ -9,7 +9,7 @@ The manuscript-based research showcase for CRAFT: cross-stage evidence, engineer
 - **Website:** https://craft2026-11.github.io/craft/
 - **Selected source code:** [craft-project](https://github.com/Craft2026-11/craft-project)
 
-This repository contains the static website only. It presents the supplied manuscript’s figures, protocol and reported tables, with interactive result comparisons and figure inspection. Layout images are static manuscript figures; the decision example is not a multi-iteration replay.
+This repository contains the static website only. It presents the supplied manuscript’s figures, protocol and reported tables, with interactive result comparisons and figure inspection. The layout gallery includes direct Innovus exports from selected CRAFT experiments alongside the original manuscript comparison; the decision example is not a multi-iteration replay.
 
 `craft-project` contains a separately maintained portable Python core, tests and an explicitly synthetic offline demonstration. It is a partial source release, not a complete reproduction package.
 
@@ -27,7 +27,7 @@ The public export contains no account database or login server. The independent 
 
 `data/paper-results.json` transcribes the manuscript’s settings and results. Missing source units are explicitly identified. Raw experiment workspaces, commercial design databases, PDKs, the manuscript source archive and complete tool integrations are not distributed here.
 
-The four layout panels embedded in the manuscript PDF are approximately 300 × 300 pixels. The homepage uses the native 305 × 299 CRAFT CPU Tile panel without enlarging it beyond its pixel dimensions; the full Figure 6 remains available. Higher-resolution physical detail requires original EDA exports.
+The four layout panels embedded in the manuscript PDF are approximately 300 × 300 pixels. The full Figure 6 remains available as the manuscript reference. The homepage now uses a newly exported Innovus CPU Tile preview; it is presented as an experimental snapshot rather than a replacement for a manuscript result.
 
 ## Conceptual flow animation
 
@@ -39,3 +39,10 @@ Play, pause, step, seek, change speed or inspect an individual stage. Playback s
 The flow now includes a stage-level **decision trace**: evidence to inspect, working diagnosis, candidate action, checkpoint boundary, and prediction / verification. It follows playback; selecting a trace stage pauses playback for inspection. An adjacent engineer illustration frames the evidence review perspective, without adding a human approval step to the evaluated method. Parameter names and ranges match manuscript examples; diagnoses and the animation remain illustrative. The manuscript's actual decision case is linked separately.
 
 The five-stage diagram and an initial trace remain visible without JavaScript. Motion preferences are respected, older media-query listeners have a fallback, and changed assets carry versioned URLs to reduce stale cache mixing.
+
+
+## Innovus layout gallery
+
+Three selected post-route layouts—CPU Tile, NoCRouter and RISC-V CPU—are exported directly from existing CRAFT experiment checkpoints in Innovus. Each has a 960 × 960 preview and a 3000 × 3000 PNG for inspection and download. The image viewer supports fit-to-view and native resolution, loading full images only when opened.
+
+The gallery shows design names and images without timing or QoR numbers. It is separate from the manuscript’s Figure 6 and does not assert a row-by-row correspondence with its tables or a signoff result. Selection records and checkpoint provenance remain local; no design database, tool log, library or PDK is included in this website.
