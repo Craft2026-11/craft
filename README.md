@@ -1,5 +1,7 @@
 **[🌐 Visit the CRAFT project website →](https://craft2026-11.github.io/craft/)**
 
+**[💻 Source Code →](https://github.com/Craft2026-11/craft-project)**
+
 <p align="center"><a href="https://craft2026-11.github.io/craft/"><img src="assets/craft-icon.svg" width="84" height="84" alt="CRAFT project website"></a></p>
 
 # CRAFT research website
